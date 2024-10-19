@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Predictions</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e8f4f8;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .container {
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        text-align: center;
+    }
+    
+    h1 {
+        color: #007BFF;
+        margin-bottom: 30px;
+    }
+    
+    .stats {
+        display: flex;
+        justify-content: space-around;
+    }
+    
+    .stat-item {
+        background-color: #f0f0f0;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    
+    .stat-item h2 {
+        color: #333;
+    }
+    
+    .stat-item p {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #007BFF;
+    }
+
+</style>
+</head>
+<body>
+    <div class="container">
+        <h1>Total Predictions</h1>
+        <div class="stats">
+            <div class="stat-item">
+                <h2>Total Predictions:</h2>
+                <p>{{ total_predictions }}</p>
+            </div>
+            <div class="stat-item">
+                <h2>Positive Predictions:</h2>
+                <p>{{ positive_predictions }}</p>
+            </div>
+            <div class="stat-item">
+                <h2>Negative Predictions:</h2>
+                <p>{{ negative_predictions }}</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

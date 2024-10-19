@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes Prediction App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Background image styling */
+        body {
+          background-image: url('{{ url_for('static', filename='images/background.jpg') }}');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          min-height: 100vh; /* Full page height coverage */
+        }
+      
+        /* Keep content positioning intact */
+        .container-fluid {
+          padding-top: 50px; /* Add padding to maintain content position */
+          padding-bottom: 50px;
+        }
+      
+        /* Remove the black background layer from the container */
+        .container {
+          padding: 30px;
+          border-radius: 10px;
+          /* Background removed */
+        }
+      
+        /* Ensure labels are visible */
+        label {
+          color: white; /* White labels for visibility */
+        }
+      
+        /* Slightly transparent form fields for a clean look */
+        .form-control {
+          background-color: rgba(255, 255, 255, 0.8); /* Light transparency */
+          color: #000;
+        }
+      
+        /* Button styling */
+        .btn {
+          background-color: #28a745; /* Green button color */
+        }
+      
+        .btn:hover {
+          background-color: #218838; /* Darker shade on hover */
+        }
+      </style>
+      
+        
+    
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/">Diabetes Prediction App</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item {{ home_active|default('') }}">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item {{ about_active|default('') }}">
+                    <a class="nav-link" href="/about">About</a>
+                </li>
+                <li class="nav-item {{ login_active|default('') }}">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item {{ register_active|default('') }}">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item {{ admin_active|default('') }}">
+                    <a class="nav-link" href="/admin">Admin</a>
+                </li>
+                {% if 'logged_in' in session %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Logout</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        {% block body %}{% endblock %}
+    </div>
+    <footer class="text-center py-4">
+        <p>&copy; 2024 Diabetes Prediction App</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<head>
+    <style>
+        /* Container styling */
+        .container-fluid {
+          margin-top: 50px;
+          padding: 20px;
+          background-color: rgba(255, 255, 255, 0.9); /* Soft white background with slight transparency */
+          border-radius: 10px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+        }
+      
+        /* Heading styling */
+        .container-fluid h2 {
+          font-family: 'Arial', sans-serif;
+          font-weight: 600;
+          color: #343a40; /* Dark text for heading */
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-bottom: 30px;
+        }
+      
+        /* Table styling */
+        .table {
+          width: 100%;
+          border-collapse: collapse;
+          margin-bottom: 20px;
+        }
+      
+        /* Table header styling */
+        .table th {
+          background-color: #28a745; /* Green background for header */
+          color: white;
+          padding: 12px;
+          text-align: left;
+          font-weight: 600;
+          text-transform: capitalize;
+        }
+      
+        /* Table body styling */
+        .table td {
+          padding: 12px;
+          border-bottom: 1px solid #dee2e6; /* Light border for clean separation */
+          color: #343a40; /* Darker text for readability */
+        }
+      
+        /* Bold prediction result */
+        .table td strong {
+          color: #dc3545; /* Highlight prediction result in red */
+          font-weight: bold;
+          font-size: 1.1em;
+        }
+      
+        /* Table row hover effect */
+        .table tbody tr:hover {
+          background-color: rgba(0, 0, 0, 0.05); /* Light background on hover */
+        }
+      
+        /* Responsive table */
+        @media (max-width: 768px) {
+          .container-fluid {
+            padding: 15px;
+          }
+      
+          .table th, .table td {
+            padding: 10px;
+          }
+        }
+      </style>
+</head>
+<body>      
+      <!-- Prediction Results Output -->
+      <div class="container-fluid">
+        <h2 class="text-center my-4">Prediction Results</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Field</th>
+                    <th>Value</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Pregnancies</td><td>{{ context.num_preg }}</td></tr>
+                <tr><td>Glucose</td><td>{{ context.glucose_conc }}</td></tr>
+                <tr><td>Blood Pressure</td><td>{{ context.diastolic_bp }}</td></tr>
+                <tr><td>Skin Thickness</td><td>{{ context.thickness }}</td></tr>
+                <tr><td>Insulin</td><td>{{ context.insulin }}</td></tr>
+                <tr><td>BMI</td><td>{{ context.bmi }}</td></tr>
+                <tr><td>Diabetes Pedigree Function</td><td>{{ context.dpf }}</td></tr>
+                <tr><td>Age</td><td>{{ context.age }}</td></tr>
+                <tr><td>Prediction</td><td><strong>{{ context.prediction_result }}</strong></td></tr>
+            </tbody>
+        </table>
+      </div>
+      
